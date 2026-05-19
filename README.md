@@ -97,6 +97,10 @@ migrations/             SQL schema files
 
 ![Transactions](resources/2.png)
 
+---
+
+### Telegram bot
+
 <p align="center">
   <img src="resources/tg1.jpeg" width="30%" />
   <img src="resources/tg3.jpeg" width="30%" />
