@@ -10,9 +10,8 @@
 </p>
 
 
-An AI-powered personal finance tracker with expense parsing, wallets, budgets, loans[planned], transfers, receipts, web dashboard, and Telegram bot support.
 
-**Describe an expense in plain text → AI extracts the transaction → wallet balance updates automatically.**
+**Describe an expense in plain text or upload receipt → AI extracts the transaction → wallet balance updates automatically.**
 
 ---
 
