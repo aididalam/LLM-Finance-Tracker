@@ -29,7 +29,6 @@ An AI-powered personal finance tracker with expense parsing, wallets, budgets, l
 - **Receipt parsing** — upload photo or PDF on web or send to bot; AI extracts items automatically
 - **Dashboard** — monthly overview, category trends, budget tracking
 - **Accounts & transfers** — cash, bank, credit card with balance tracking
-- **Loan tracking** — record and repay loans with multi-turn conversation flow
 - **Budgets** — per-category monthly limits with usage alerts
 - **CSV export** — filtered expense export
 
