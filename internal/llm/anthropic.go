@@ -145,7 +145,7 @@ func (p *anthropicProvider) ParseReceipt(ctx context.Context, imageData []byte, 
 
 	body, _ := json.Marshal(visionReq{
 		Model:     p.model,
-		MaxTokens: 1024,
+		MaxTokens: 4096,
 		System:    buildReceiptSystemPrompt(categories, defaultCurrency),
 		Messages:  []visionMessage{{Role: "user", Content: json.RawMessage(contentJSON)}},
 	})
