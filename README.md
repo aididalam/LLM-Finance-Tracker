@@ -10,11 +10,18 @@
 </p>
 
 
-An AI-powered personal finance tracker with expense parsing, wallets, budgets, loans, transfers, receipts, web dashboard, and Telegram bot support.
+An AI-powered personal finance tracker with expense parsing, wallets, budgets, loans[planned], transfers, receipts, web dashboard, and Telegram bot support.
 
 **Describe an expense in plain text → AI extracts the transaction → wallet balance updates automatically.**
 
+---
+
 **Stack:** Go · MySQL · React · Telegram Bot API · Anthropic / OpenAI
+
+
+> This is an early-stage project that I continue developing in my free time. More features, improvements, and bug fixes will be added gradually.
+
+
 
 ## Features
 
@@ -91,10 +98,19 @@ migrations/             SQL schema files
 
 ![Transactions](resources/2.png)
 
-### Telegram bot expense flow
+<div style="display:flex; gap:8px; align-items:flex-start;">
+  <div style="width:32%; text-align:center;">
+    <img src="resources/tg1.jpeg" width="100%">
+    <p>Telegram bot expense flow</p>
+  </div>
 
-![Telegram bot expense flow](resources/tg1.jpeg)
+  <div style="width:32%; text-align:center;">
+    <img src="resources/tg3.jpeg" width="100%">
+    <p>Receipt image reading</p>
+  </div>
 
-### Telegram bot wallet summary
-
-![Telegram bot wallet summary](resources/rg2.jpeg)
+  <div style="width:32%; text-align:center;">
+    <img src="resources/tg2.jpeg" width="100%">
+    <p>Telegram bot wallet summary</p>
+  </div>
+</div>
