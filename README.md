@@ -97,19 +97,19 @@ migrations/             SQL schema files
 
 ![Transactions](resources/2.png)
 
-<div style="display:flex; gap:8px; align-items:flex-start;">
-  <div style="width:32%; text-align:center;">
-    <img src="resources/tg1.jpeg" width="100%">
-    <p>Telegram bot expense flow</p>
-  </div>
-
-  <div style="width:32%; text-align:center;">
-    <img src="resources/tg3.jpeg" width="100%">
-    <p>Receipt image reading</p>
-  </div>
-
-  <div style="width:32%; text-align:center;">
-    <img src="resources/tg2.jpeg" width="100%">
-    <p>Telegram bot wallet summary</p>
-  </div>
-</div>
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="resources/tg1.jpeg" width="95%"><br>
+      <sub>Telegram bot expense flow</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="resources/tg3.jpeg" width="95%"><br>
+      <sub>Receipt image reading</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="resources/tg2.jpeg" width="95%"><br>
+      <sub>Telegram bot wallet summary</sub>
+    </td>
+  </tr>
+</table>
