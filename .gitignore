@@ -1,0 +1,32 @@
+.env
+.DS_Store
+Thumbs.db
+
+# Build and runtime output
+bin/
+tmp/
+*.log
+*.out
+*.test
+*.cov
+
+# Editor and local tool state
+.claude/
+.idea/
+.vscode/
+*.swp
+*~
+
+# Go workspace and dependencies
+go.work
+go.work.sum
+vendor/
+
+# Platform binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+web/node_modules/
+web/dist/
