@@ -3,7 +3,6 @@ package config
 import (
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/rs/zerolog/log"
 )
 
@@ -45,37 +44,43 @@ var required = []string{
 }
 
 func Load() *Config {
-	_ = godotenv.Load()
 
 	for _, key := range required {
-		if os.Getenv(key) == "" {
+		v, ok := os.LookupEnv(key)
+		if !ok {
 			log.Fatal().Msgf("required environment variable %s is missing", key)
+		}
+		if v == "" {
+			log.Fatal().Msgf("required environment variable %s's value is missing", key)
 		}
 	}
 
 	return &Config{
-		AppEnv:                getenv("APP_ENV", "development"),
-		AppPort:               getenv("APP_PORT", "8080"),
-		DBHost:                os.Getenv("DB_HOST"),
-		DBPort:                getenv("DB_PORT", "3306"),
-		DBUser:                os.Getenv("DB_USER"),
-		DBPassword:            os.Getenv("DB_PASSWORD"),
-		DBName:                os.Getenv("DB_NAME"),
+		AppEnv:           getEnv("APP_ENV", "development"),
+		AppPort:          getEnv("APP_PORT", "8080"),
+		DBHost:           os.Getenv("DB_HOST"),
+		DBPort:           getEnv("DB_PORT", "3306"),
+		DBUser:           os.Getenv("DB_USER"),
+		DBPassword:       os.Getenv("DB_PASSWORD"),
+		DBName:           os.Getenv("DB_NAME"),
 		TelegramBotToken: os.Getenv("TELEGRAM_BOT_TOKEN"),
 		TelegramChatID:   os.Getenv("TELEGRAM_CHAT_ID"),
-		LLMProvider:           os.Getenv("LLM_PROVIDER"),
-		AnthropicAPIKey:       os.Getenv("ANTHROPIC_API_KEY"),
-		AnthropicModel:        getenv("ANTHROPIC_MODEL", "claude-haiku-4-5-20251001"),
-		OpenAIAPIKey:          os.Getenv("OPENAI_API_KEY"),
-		OpenAIModel:           getenv("OPENAI_MODEL", "gpt-4o-mini"), // same tier as claude-haiku
-		JWTSecret:             os.Getenv("JWT_SECRET"),
-		LogLevel:              getenv("LOG_LEVEL", "info"),
+		LLMProvider:      os.Getenv("LLM_PROVIDER"),
+		AnthropicAPIKey:  os.Getenv("ANTHROPIC_API_KEY"),
+		AnthropicModel:   getEnv("ANTHROPIC_MODEL", "claude-haiku-4-5-20251001"),
+		OpenAIAPIKey:     os.Getenv("OPENAI_API_KEY"),
+		OpenAIModel:      getEnv("OPENAI_MODEL", "gpt-4o-mini"), // same tier as claude-haiku
+		JWTSecret:        os.Getenv("JWT_SECRET"),
+		LogLevel:         getEnv("LOG_LEVEL", "info"),
 	}
 }
 
-func getenv(key, fallback string) string {
-	if v := os.Getenv(key); v != "" {
+func getEnv(key, fallback string) string {
+	v := os.Getenv(key)
+
+	if v != "" {
 		return v
 	}
+
 	return fallback
 }

@@ -5,7 +5,6 @@ import (
 	"time"
 
 	"github.com/aididalam/llmexpensetracker/internal/config"
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/rs/zerolog/log"
 )
@@ -16,6 +15,7 @@ func Connect(cfg *config.Config) *sqlx.DB {
 	)
 
 	db, err := sqlx.Connect("mysql", dsn)
+
 	if err != nil {
 		log.Fatal().Err(err).Msg("failed to connect to database")
 	}
@@ -25,5 +25,6 @@ func Connect(cfg *config.Config) *sqlx.DB {
 	db.SetConnMaxLifetime(5 * time.Minute)
 
 	log.Info().Msg("database connected")
+
 	return db
 }

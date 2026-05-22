@@ -6,25 +6,26 @@ import (
 	"path/filepath"
 
 	"github.com/aididalam/llmexpensetracker/internal/config"
+	"github.com/rs/zerolog/log"
+
 	"github.com/golang-migrate/migrate/v4"
 	migmysql "github.com/golang-migrate/migrate/v4/database/mysql"
-	_ "github.com/golang-migrate/migrate/v4/source/file"
-	"github.com/jmoiron/sqlx"
-	"github.com/rs/zerolog/log"
 )
 
-func RunMigration(cfg *config.Config, db *sqlx.DB, direction string) {
+func RunMigration(cfg *config.Config, direction string) {
 	files, _ := filepath.Glob("migrations/*.sql")
+
 	if len(files) == 0 {
 		log.Info().Msg("no migration files found, skipping")
 		return
 	}
 
-	// migrations need multiStatements=true to support multiple SQL statements per file
 	migDSN := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?parseTime=true&charset=utf8mb4&multiStatements=true",
 		cfg.DBUser, cfg.DBPassword, cfg.DBHost, cfg.DBPort, cfg.DBName,
 	)
+
 	migDB, err := sql.Open("mysql", migDSN)
+
 	if err != nil {
 		log.Fatal().Err(err).Msg("migration db open failed")
 	}
@@ -54,4 +55,5 @@ func RunMigration(cfg *config.Config, db *sqlx.DB, direction string) {
 	}
 
 	log.Info().Msgf("migrations %s applied", direction)
+
 }
