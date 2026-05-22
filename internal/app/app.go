@@ -27,7 +27,9 @@ type Services struct {
 func New(cfg *config.Config) (*Application, error) {
 	//db connect
 	db := mysql.Connect(cfg)
-	mysql.RunMigration(cfg, "up")
+	if cfg.AppEnv == "development" {
+		mysql.RunMigration(cfg, "up")
+	}
 
 	// repository init
 	repos := newRepositories(db)

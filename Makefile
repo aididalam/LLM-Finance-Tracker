@@ -1,5 +1,5 @@
 dev:
-	air
+	air -c .air.toml
 
 run:
 	go run ./cmd/main
